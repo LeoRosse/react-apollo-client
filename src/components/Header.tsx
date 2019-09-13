@@ -1,0 +1,20 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
+
+const _Header: React.FC<{}> = () => (
+  <div className="flex pa1 justify-between nowrap orange">
+    <div className="flex flex-fixed black">
+      <div className="fw7 mr1">Users List</div>
+      <Link to="/" className="ml1 no-underline black">
+        new
+      </Link>
+      <div className="ml1">|</div>
+      <Link to="/create" className="ml1 no-underline black">
+        submit
+      </Link>
+    </div>
+  </div>
+);
+
+export const Header = withRouter(_Header);
