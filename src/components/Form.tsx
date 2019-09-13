@@ -1,5 +1,7 @@
 import React from "react";
 import { Mutation, MutationFunction } from "react-apollo";
+import { withRouter } from "react-router";
+import { RouteComponentProps } from "react-router-dom";
 
 import { CREATE_USER_MUTATION } from "../constants/mutation";
 
@@ -9,7 +11,9 @@ const initialState = {
   email: ""
 };
 
-const Form: React.FC = () => {
+interface FormProps extends RouteComponentProps<any> {}
+
+const _Form: React.FC<FormProps> = ({ history }) => {
   const [user, setUser] = React.useState(initialState);
   const { name, surname, email } = user;
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +48,11 @@ const Form: React.FC = () => {
           placeholder="Email"
         />
       </div>
-      <Mutation mutation={CREATE_USER_MUTATION} variables={{ ...user }}>
+      <Mutation
+        mutation={CREATE_USER_MUTATION}
+        variables={{ ...user }}
+        onCompleted={() => history.push("/")}
+      >
         {(createUser: MutationFunction) => (
           <button onClick={() => createUser()}>Submit</button>
         )}
@@ -53,4 +61,4 @@ const Form: React.FC = () => {
   );
 };
 
-export default Form;
+export const Form = withRouter(_Form);

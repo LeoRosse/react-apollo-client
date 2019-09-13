@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import List from "./components/List";
-import Form from "./components/Form";
+import { Form } from "./components/Form";
 import { Header } from "./components/Header";
 import { Switch, Route } from "react-router-dom";
 
