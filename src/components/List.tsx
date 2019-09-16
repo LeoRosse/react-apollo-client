@@ -16,7 +16,7 @@ const List: React.FC = () => {
         return (
           <div>
             {usersToRender.map((user: User, index: number) => (
-              <div key={index}>
+              <div className="list-item" key={index}>
                 {user.name} {user.surname} {user.email}
               </div>
             ))}

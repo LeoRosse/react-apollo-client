@@ -9,7 +9,7 @@ interface HeaderProps extends RouteComponentProps<any> {}
 const _Header: React.FC<HeaderProps> = ({ history }) => {
   const authToken = localStorage.getItem(AUTH_TOKEN);
   return (
-    <div className="flex pa1 justify-between nowrap orange">
+    <div className="flex pa1 justify-between nowrap">
       <div className="flex flex-fixed black">
         <div className="fw7 mr1">Users List</div>
         <Link to="/" className="ml1 no-underline black">
